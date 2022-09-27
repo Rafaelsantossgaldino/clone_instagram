@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
+  include SuggestedUsers
+
   before_action :set_post, only: %i[show]
+  before_action :set_sugested_users, only: %i[index]
 
   def index
+    #flash.now[:notice] = "Yay!!"
     @posts = Post.all
-  end
-
-  def show
   end
 
   def new
@@ -13,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(post_params.merge(created_by: current_user))
 
     respond_to do |format|
       if @post.save
