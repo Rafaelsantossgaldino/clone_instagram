@@ -2,7 +2,7 @@
   <header>
     <nav>
       <%= image_tag "default-avatar.jpg", class: "photo" %>
-      <h4>nome-do-usuario</h4>
+      <h4><%= post.created_by.username %></h4>
     <nav>
     <nav class="actions">
       <div class="action">
@@ -11,7 +11,7 @@
     </nav>
   </header>
   <section class="image">
-    <%= image_tag "https://i.picsum.photos/id/564/600/600.jpg" %>
+    <%= image_tag "https://i.pinimg.com/736x/c7/83/a4/c783a4b228b0da83ce83c2bbb7d08b19.jpg" %>
   </section>
   <div class="details">
     <section class="actions">
@@ -22,7 +22,9 @@
           </div>
         </div>
         <div class="action">
-          <%= embedded_svg "comment.svg" %>
+          <%= link_to post do %>
+            <%= embedded_svg "comment.svg" %>
+          <% end %>
         </div>
         <div class="action">
           <%= embedded_svg "share.svg" %>
@@ -33,7 +35,7 @@
       </nav>
     </section>
     <section class="description">
-      <p><strong>nome-do-usuario</strong><%= post.description %></p>
+      <p><strong><%= post.created_by.username %></strong><%= post.description %></p>
     </section>
     <section class="created-at">
       <%= time_ago_in_words(post.created_at) %> atrás
