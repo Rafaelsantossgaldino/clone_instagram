@@ -16,14 +16,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params.merge(created_by: current_user))
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.save
+      redirect_to @post, notice: "Post was successfully created."
+    else
+      flash.now[:alert] = @post.errors.full_messages.to_sentence
+      render :new
     end
   end
 
@@ -34,6 +31,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:description)
+    params.require(:post).permit(:photo, :description)
   end
 end
