@@ -1,7 +1,8 @@
 <article class="post">
   <header>
     <nav>
-      <%= image_tag "default-avatar.jpg", class: "photo" %>
+      <%= user_avatar(post.created_by) %>
+
       <h4><%= post.created_by.username %></h4>
     <nav>
     <nav class="actions">
