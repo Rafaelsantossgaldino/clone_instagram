@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'comments/create'
   root "posts#index"
 
   devise_for :users, only: %i[sessions registrations passwords]
@@ -9,4 +10,5 @@ Rails.application.routes.draw do
 
   resources :posts, only: %i[index show new create]
   resources :likes, only: %i[create destroy]
+  resources :comments, only: %i[create]
 end
