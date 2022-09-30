@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '2.7.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6', '>= 6.1.6.1'
@@ -53,3 +53,5 @@ gem "devise-i18n", "~> 1.10"
 gem "letter_opener", "~> 1.8"
 
 gem "active_storage_validations", "~> 0.9.8"
+
+gem "redis", "~> 5.0"
