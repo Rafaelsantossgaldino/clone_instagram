@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comment = Commnet.new
+    @comment = Comment.new
   end
 
   def new
