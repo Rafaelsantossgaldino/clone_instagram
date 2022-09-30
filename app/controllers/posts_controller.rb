@@ -2,11 +2,14 @@ class PostsController < ApplicationController
   include SuggestedUsers
 
   before_action :set_post, only: %i[show]
-  before_action :set_sugested_users, only: %i[index]
+  before_action :set_suggested_users, only: %i[index]
 
   def index
-    #flash.now[:notice] = "Yay!!"
     @posts = Post.all
+  end
+
+  def show
+    @comment = Commnet.new
   end
 
   def new
