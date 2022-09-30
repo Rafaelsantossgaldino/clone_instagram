@@ -1,4 +1,4 @@
-<main class="posts-page container" >
+<main class="posts-page container">
   <section class="posts">
     <% if @posts.any? %>
       <%= render @posts %>
@@ -9,13 +9,15 @@
 
   <aside>
     <%= render current_user %>
+
     <section class="suggestions">
-      <h4>Sugestões Para Voce</h4>
+      <h4>Sugestões Para Você</h4>
+
       <%= render @suggested_users %>
     </section>
   </aside>
 
   <footer>
-   @ <%= Date.current.year %> Instagrm Clone
+    © <%= Date.current.year %> INSTAGRAM CLONE BY(RAFAEL GALDINO)
   </footer>
 </main>
